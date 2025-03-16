@@ -26,7 +26,8 @@ function Sidebar({ closeSidebar, isOpen }: SidebarProps) {
       >
         <ul className="flex flex-col" onClick={closeSidebar}>
           <Link to="electronics">Electronics</Link>
-          <Link to="clothing">Clothing</Link>
+          <Link to="clothes-f">Women's Clothing</Link>
+          <Link to="clothes-m">Men's Clothing</Link>
           <Link to="jewelery">jewelery</Link>
         </ul>
       </div>
