@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface SidebarProps {
   closeSidebar: () => void;
@@ -22,12 +23,11 @@ function Sidebar({ closeSidebar, isOpen }: SidebarProps) {
       )}
       <div
         className={`w-3/4 fixed z-30 bg-red-50 h-full ease-in-out duration-200 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
-        onClick={handleOutsideClick}
       >
-        <ul>
-          <li>link1</li>
-          <li>link2</li>
-          <li>link3</li>
+        <ul className="flex flex-col" onClick={closeSidebar}>
+          <Link to="electronics">Electronics</Link>
+          <Link to="clothing">Clothing</Link>
+          <Link to="jewelery">jewelery</Link>
         </ul>
       </div>
     </>
