@@ -22,7 +22,7 @@ function Sidebar({ closeSidebar, isOpen }: SidebarProps) {
         ></div>
       )}
       <div
-        className={`w-3/4 fixed z-30 bg-red-50 h-full ease-in-out duration-200 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+        className={`w-3/4 fixed z-30 bg-red-50 h-full ease-out duration-150 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <ul className="flex flex-col" onClick={closeSidebar}>
           <Link className="text-3xl" to="/">
