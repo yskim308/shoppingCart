@@ -25,6 +25,9 @@ function Sidebar({ closeSidebar, isOpen }: SidebarProps) {
         className={`w-3/4 fixed z-30 bg-red-50 h-full ease-in-out duration-200 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <ul className="flex flex-col" onClick={closeSidebar}>
+          <Link className="text-3xl" to="/">
+            HOME
+          </Link>
           <Link to="electronics">Electronics</Link>
           <Link to="clothes-f">Women's Clothing</Link>
           <Link to="clothes-m">Men's Clothing</Link>
