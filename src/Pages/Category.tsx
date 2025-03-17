@@ -1,5 +1,6 @@
 import { useOutletContext, useParams } from "react-router-dom";
 import { Product } from "../types";
+import ProductCard from "../components/ProductCard";
 
 export default function Category() {
   const { category } = useParams();
@@ -16,16 +17,12 @@ export default function Category() {
   console.log(filterWord);
 
   return (
-    <div>
-      <h1>hello from {category}</h1>
-      {filteredProducts.map((product) => {
-        return (
-          <div key={product.id}>
-            <h1>{product.title}</h1>
-            <h1>{product.price}</h1>
-          </div>
-        );
-      })}
+    <div className="flex justify-center p-10 w-full">
+      <div className="grid grid-cols-3 md:grid-cols-4 md:w-4/5">
+        {filteredProducts.map((product) => {
+          return <ProductCard product={product} />;
+        })}
+      </div>
     </div>
   );
 }
