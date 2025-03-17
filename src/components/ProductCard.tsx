@@ -6,12 +6,12 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <div>
+    <div className={`p-5 animate-fade`}>
       <div className="aspect-square w-auto flex flex-col">
         <img
           src={product.image}
           alt="Unable to Load"
-          className="w-full h-full"
+          className={`w-full h-full`}
         />
       </div>
       <div>
