@@ -7,7 +7,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <Link to={`/${product.category}/${product.id}`}>
+    <Link to={`/${product.category}/${product.id}`} state={product}>
       <div className={`p-5 animate-fade`}>
         <div className="aspect-square w-auto flex flex-col">
           <img
