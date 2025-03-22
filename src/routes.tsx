@@ -19,7 +19,7 @@ const routes = [
         element: <Category />,
       },
       {
-        path: ":category/:item",
+        path: ":category/:itemId",
         element: <ItemPage />,
       },
       {
