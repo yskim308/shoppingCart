@@ -1,9 +1,11 @@
 import { useLocation, useOutletContext, useParams } from "react-router-dom";
 import { Product } from "../types";
 import { useEffect, useState } from "react";
+import starIcon from "../assets/star-outline.svg";
 
 export default function ItemPage() {
   const [itemToDisplay, setItemToDisplay] = useState<Product | null>(null);
+  const [count, setCount] = useState<number>(0);
   const products: Product[] = useOutletContext();
   const { itemId } = useParams();
 
@@ -26,9 +28,46 @@ export default function ItemPage() {
     }
   }, [itemId, passedItem, products]);
   return (
-    <div className="flex">
-      <div>{itemToDisplay?.title}</div>
-      <div>{itemToDisplay?.description}</div>
+    <div className="flex flex-col justify-center items-center w-full h-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 w-4/5 md:w-3/5">
+        <div className="aspect-square">
+          <img
+            src={itemToDisplay?.image}
+            alt="Loading"
+            className="w-full h-full"
+          />
+        </div>
+        <div className="py-10">
+          <h1 className="text-xl font-bold">{itemToDisplay?.title}</h1>
+          <div className="flex justify-between">
+            <div className="flex items-center">
+              <img src={starIcon} alt="star" className="w-5" />
+              <p>{itemToDisplay?.rating.rate}</p>
+              <p className="font-thin mx-1">
+                ({itemToDisplay?.rating.count} reviews)
+              </p>
+            </div>
+            <h1 className="font-bold flex items-center text-green-600">
+              ${itemToDisplay?.price}
+            </h1>
+          </div>
+          <h1 className="text-xs mt-2">{itemToDisplay?.description}</h1>
+          <form className="flex justify-between mt-5">
+            <div>
+              <label htmlFor="count">Quantity:</label>
+              <input
+                type="number"
+                className="ml-2 w-15 p-2 border border-red-100 "
+                id="count"
+                name="count"
+                value={count}
+                onChange={(e) => setCount(parseInt(e.target.value))}
+              />
+            </div>
+            <button type="submit">add to cart</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
