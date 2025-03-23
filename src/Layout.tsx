@@ -2,10 +2,24 @@ import { Outlet } from "react-router-dom";
 import NavbarMobile from "./components/NavbarMobile";
 import NavbarDesktop from "./components/NavbarDesktop";
 import { useEffect, useState } from "react";
-import { Product } from "./types";
+import { Product, CheckoutItem } from "./types";
 
 export default function Layout() {
   const [products, setProducts] = useState<Product[]>([]);
+
+  const [checkoutItems, setCheckoutItems] = useState<CheckoutItem[]>([]);
+  const addCheckoutItem = (item: CheckoutItem) => {
+    setCheckoutItems([...checkoutItems, item]);
+  };
+  const removeCheckoutItem = (item: CheckoutItem) => {
+    setCheckoutItems(checkoutItems.filter((product) => product !== item));
+  };
+
+  const outletObject = {
+    products: products,
+    addCheckoutItem: addCheckoutItem,
+    removeCheckoutItem: removeCheckoutItem,
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +41,7 @@ export default function Layout() {
     <div className="flex flex-col w-full h-full">
       <NavbarMobile />
       <NavbarDesktop />
-      <Outlet context={products} />
+      <Outlet context={outletObject} />
       <div className="mt-auto text-3xl">footer</div>
     </div>
   );
