@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import CartIcon from "./CartIcon";
 
 interface SidebarProps {
   closeSidebar: () => void;
@@ -45,11 +46,15 @@ export default function NavbarMobile() {
   };
 
   return (
-    <div className="lg:hidden flex">
-      <h1>this is the mobile navbar</h1>
-      <button type="button" onClick={() => setShowSideBar(true)}>
-        show sidebar
-      </button>
+    <div className="lg:hidden flex justify-between">
+      <div>
+        <button type="button" onClick={() => setShowSideBar(true)}>
+          show sidebar
+        </button>
+      </div>
+      <div>
+        <CartIcon cartCount={3} />
+      </div>
       <Sidebar closeSidebar={closeSideBar} isOpen={showSidebar} />
     </div>
   );
