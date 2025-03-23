@@ -1,12 +1,12 @@
 import { useLocation, useOutletContext, useParams } from "react-router-dom";
-import { Product } from "../types";
+import { OutletContextObject, Product } from "../types";
 import { useEffect, useState } from "react";
 import starIcon from "../assets/star-outline.svg";
 
 export default function ItemPage() {
   const [itemToDisplay, setItemToDisplay] = useState<Product | null>(null);
   const [count, setCount] = useState<number>(0);
-  const products: Product[] = useOutletContext();
+  const { products }: OutletContextObject = useOutletContext();
   const { itemId } = useParams();
 
   // getting in passed state
