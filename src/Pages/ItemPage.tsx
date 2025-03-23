@@ -1,12 +1,12 @@
 import { useLocation, useOutletContext, useParams } from "react-router-dom";
 import { OutletContextObject, Product } from "../types";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import starIcon from "../assets/star-outline.svg";
 
 export default function ItemPage() {
   const [itemToDisplay, setItemToDisplay] = useState<Product | null>(null);
   const [count, setCount] = useState<number>(0);
-  const { products }: OutletContextObject = useOutletContext();
+  const { products, addCheckoutItem }: OutletContextObject = useOutletContext();
   const { itemId } = useParams();
 
   // getting in passed state
@@ -27,6 +27,7 @@ export default function ItemPage() {
       alert("item doesn't exist?"); // to be honest, not really sure how this block would ever be triggered
     }
   }, [itemId, passedItem, products]);
+
   return (
     <div className="flex flex-col justify-center items-center w-full h-full">
       <div className="grid grid-cols-1 md:grid-cols-2 w-4/5 md:w-3/5">
@@ -52,7 +53,16 @@ export default function ItemPage() {
             </h1>
           </div>
           <h1 className="text-xs mt-2">{itemToDisplay?.description}</h1>
-          <form className="flex justify-between mt-5">
+          <form
+            className="flex justify-between mt-5"
+            onSubmit={(e: FormEvent) => {
+              e.preventDefault();
+              if (itemToDisplay) {
+                addCheckoutItem({ product: itemToDisplay, quantity: count });
+              }
+              setCount(0);
+            }}
+          >
             <div>
               <label htmlFor="count">Quantity:</label>
               <input
