@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
+import CartIcon from "./CartIcon";
 
 export default function NavbarDesktop() {
   return (
     <div className="hidden lg:flex justify-between">
-      <div>
+      <div className="flex items-center">
         <Link className="text-3xl" to="/">
           LOGO
         </Link>
-      </div>
-      <div className="flex">
         <div>
           <Link className="mx-3" to="electronics">
             Electronics
@@ -23,7 +22,9 @@ export default function NavbarDesktop() {
             Jewelery
           </Link>
         </div>
-        <div className="mx-2">PLACEHOLDER FOR ICON</div>
+      </div>
+      <div className="flex">
+        <CartIcon cartCount={3} />
       </div>
     </div>
   );
