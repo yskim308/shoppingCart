@@ -10,3 +10,8 @@ export interface Product {
     count: number;
   };
 }
+
+export interface CheckoutItem {
+  product: Product;
+  quantity: number;
+}
