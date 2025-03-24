@@ -10,9 +10,11 @@ export default function Layout() {
   const [checkoutItems, setCheckoutItems] = useState<CheckoutItem[]>([]);
   const addCheckoutItem = (item: CheckoutItem) => {
     setCheckoutItems([...checkoutItems, item]);
+    console.log(checkoutItems);
   };
   const removeCheckoutItem = (item: CheckoutItem) => {
     setCheckoutItems(checkoutItems.filter((product) => product !== item));
+    console.log(checkoutItems);
   };
 
   const outletObject = {
@@ -40,7 +42,7 @@ export default function Layout() {
   return (
     <div className="flex flex-col w-full h-full">
       <NavbarMobile />
-      <NavbarDesktop />
+      <NavbarDesktop cartSize={checkoutItems.length} />
       <Outlet context={outletObject} />
       <div className="mt-auto text-3xl">footer</div>
     </div>

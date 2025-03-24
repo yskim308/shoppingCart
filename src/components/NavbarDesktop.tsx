@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import CartIcon from "./CartIcon";
+import { NavbarProps } from "../types";
 
-export default function NavbarDesktop() {
+export default function NavbarDesktop({ cartSize }: NavbarProps) {
   return (
     <div className="hidden lg:flex justify-between">
       <div className="flex items-center">
@@ -24,7 +25,7 @@ export default function NavbarDesktop() {
         </div>
       </div>
       <div className="flex">
-        <CartIcon cartCount={3} />
+        <CartIcon cartSize={cartSize} />
       </div>
     </div>
   );

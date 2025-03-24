@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
+
 interface CartIconProps {
-  cartCount: number;
+  cartSize: number;
 }
 
-export default function CartIcon({ cartCount }: CartIconProps) {
+export default function CartIcon({ cartSize }: CartIconProps) {
   return (
     <div>
       <Link to="checkout">
-        <h1>cart: {cartCount}</h1>
+        <h1>cart: {cartSize} </h1>
       </Link>
     </div>
   );
