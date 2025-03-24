@@ -9,12 +9,10 @@ export default function Layout() {
 
   const [checkoutItems, setCheckoutItems] = useState<CheckoutItem[]>([]);
   const addCheckoutItem = (item: CheckoutItem) => {
-    setCheckoutItems([...checkoutItems, item]);
-    console.log(checkoutItems);
+    if (item.quantity > 0) setCheckoutItems([...checkoutItems, item]);
   };
   const removeCheckoutItem = (item: CheckoutItem) => {
     setCheckoutItems(checkoutItems.filter((product) => product !== item));
-    console.log(checkoutItems);
   };
 
   const outletObject = {
