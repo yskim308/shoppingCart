@@ -21,3 +21,7 @@ export interface OutletContextObject {
   addCheckoutItem: (item: CheckoutItem) => void;
   removeCheckoutItem: (item: CheckoutItem) => void;
 }
+
+export interface NavbarProps {
+  cartSize: number;
+}
