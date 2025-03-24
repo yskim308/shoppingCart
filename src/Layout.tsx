@@ -9,7 +9,21 @@ export default function Layout() {
 
   const [checkoutItems, setCheckoutItems] = useState<CheckoutItem[]>([]);
   const addCheckoutItem = (item: CheckoutItem) => {
-    if (item.quantity > 0) setCheckoutItems([...checkoutItems, item]);
+    if (item.quantity > 0) {
+      setCheckoutItems((prevItems) => {
+        if (prevItems.find((i) => i.product.id === item.product.id)) {
+          // if the item alreaydy exists, just update the quantity
+          return prevItems.map((i) =>
+            i.product.id === item.product.id
+              ? { ...i, quantity: i.quantity + item.quantity }
+              : i,
+          );
+        } else {
+          // otherwise add it to the list
+          return [...prevItems, item];
+        }
+      });
+    }
   };
   const removeCheckoutItem = (item: CheckoutItem) => {
     setCheckoutItems(checkoutItems.filter((product) => product !== item));
