@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import CartIcon from "./CartIcon";
+import { NavbarProps } from "../types";
 
 interface SidebarProps {
   closeSidebar: () => void;
@@ -39,7 +40,7 @@ function Sidebar({ closeSidebar, isOpen }: SidebarProps) {
   );
 }
 
-export default function NavbarMobile() {
+export default function NavbarMobile({ cartSize }: NavbarProps) {
   const [showSidebar, setShowSideBar] = useState<boolean>(false);
   const closeSideBar = () => {
     setShowSideBar(false);
@@ -53,7 +54,7 @@ export default function NavbarMobile() {
         </button>
       </div>
       <div>
-        <CartIcon cartCount={3} />
+        <CartIcon cartSize={cartSize} />
       </div>
       <Sidebar closeSidebar={closeSideBar} isOpen={showSidebar} />
     </div>
