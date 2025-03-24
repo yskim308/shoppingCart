@@ -17,6 +17,7 @@ export default function Layout() {
 
   const outletObject = {
     products: products,
+    checkoutItems: checkoutItems,
     addCheckoutItem: addCheckoutItem,
     removeCheckoutItem: removeCheckoutItem,
   };
