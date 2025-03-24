@@ -18,6 +18,7 @@ export interface CheckoutItem {
 
 export interface OutletContextObject {
   products: Product[];
+  checkoutItems: Product[];
   addCheckoutItem: (item: CheckoutItem) => void;
   removeCheckoutItem: (item: CheckoutItem) => void;
 }
