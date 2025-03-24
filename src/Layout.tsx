@@ -54,7 +54,7 @@ export default function Layout() {
 
   return (
     <div className="flex flex-col w-full h-full">
-      <NavbarMobile />
+      <NavbarMobile cartSize={checkoutItems.length} />
       <NavbarDesktop cartSize={checkoutItems.length} />
       <Outlet context={outletObject} />
       <div className="mt-auto text-3xl">footer</div>
