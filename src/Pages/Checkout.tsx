@@ -3,15 +3,15 @@ import { OutletContextObject } from "../types";
 import ItemCard from "../components/CheckoutItem";
 
 export default function Checkout() {
-  const { checkoutItems, removeCheckoutItem }: OutletContextObject =
-    useOutletContext();
+  const { checkoutItems }: OutletContextObject = useOutletContext();
 
   return (
-    <div>
-      <h1>checkout page</h1>
-      {checkoutItems.map((item) => {
-        return <ItemCard item={item} key={item.product.id} />;
-      })}
+    <div className="flex flex-col items-center">
+      <div className="w-4/5 m-10">
+        {checkoutItems.map((item) => {
+          return <ItemCard item={item} key={item.product.id} />;
+        })}
+      </div>
     </div>
   );
 }
