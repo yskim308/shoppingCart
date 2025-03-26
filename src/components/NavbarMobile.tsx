@@ -28,7 +28,7 @@ function Sidebar({ closeSidebar, isOpen }: SidebarProps) {
         className={`w-3/4 fixed z-30  shadow-2xl rounded-tr-xl border-sky-950 bg-sky-50 h-full ease-out duration-150 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <ul className="flex flex-col m-4" onClick={closeSidebar}>
-          <Link className="text-3xl font-medium mb-3" to="/">
+          <Link className="text-3xl font-semibold mb-3 text-sky-900" to="/">
             HOME
           </Link>
           <Link
