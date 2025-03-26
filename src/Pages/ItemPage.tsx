@@ -33,8 +33,8 @@ export default function ItemPage() {
   return (
     <>
       <Alert message="Added to Cart" show={showAlert} />
-      <div className="flex flex-col justify-center items-center w-full h-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 w-4/5 md:w-3/5">
+      <div className="flex flex-col items-center w-full h-full mt-5 lg:mt-10 ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 w-4/5 md:w-3/5">
           <div className="aspect-square">
             <img
               src={itemToDisplay?.image}
@@ -42,8 +42,10 @@ export default function ItemPage() {
               className="w-full h-full"
             />
           </div>
-          <div className="py-10">
-            <h1 className="text-xl font-bold">{itemToDisplay?.title}</h1>
+          <div className="py-10 lg:py-0 lg:ml-10">
+            <h1 className="text-xl font-bold text-sky-950">
+              {itemToDisplay?.title}
+            </h1>
             <div className="flex justify-between">
               <div className="flex items-center">
                 <img src={starIcon} alt="star" className="w-5" />
@@ -52,13 +54,15 @@ export default function ItemPage() {
                   ({itemToDisplay?.rating.count} reviews)
                 </p>
               </div>
-              <h1 className="font-bold flex items-center text-green-600">
+              <h1 className="font-bold flex items-center text-sky-900">
                 ${itemToDisplay?.price}
               </h1>
             </div>
-            <h1 className="text-xs mt-2">{itemToDisplay?.description}</h1>
+            <h1 className="text-xs mt-2 text-sky-950">
+              {itemToDisplay?.description}
+            </h1>
             <form
-              className="flex justify-between mt-5"
+              className="flex justify-between mt-5 items-center"
               onSubmit={(e: FormEvent) => {
                 e.preventDefault();
                 if (itemToDisplay) {
@@ -71,18 +75,23 @@ export default function ItemPage() {
                 setCount(0);
               }}
             >
-              <div>
+              <div className="text-sky-950 font-light">
                 <label htmlFor="count">Quantity:</label>
                 <input
                   type="number"
-                  className="ml-2 w-15 p-2 border border-red-100 "
+                  className="ml-2 w-15 p-2 shadow rounded"
                   id="count"
                   name="count"
                   value={count}
                   onChange={(e) => setCount(parseInt(e.target.value))}
                 />
               </div>
-              <button type="submit">add to cart</button>
+              <button
+                type="submit"
+                className="rounded-2xl shadow shadow-sky-900 p-3 text-sky-950"
+              >
+                add to cart
+              </button>
             </form>
           </div>
         </div>
