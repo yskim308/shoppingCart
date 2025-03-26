@@ -4,28 +4,28 @@ import { NavbarProps } from "../types";
 
 export default function NavbarDesktop({ cartSize }: NavbarProps) {
   return (
-    <div className="hidden lg:flex justify-between">
+    <div className="hidden lg:flex justify-between p-5 bg-sky-50 w-full">
       <div className="flex items-center">
         <Link className="text-3xl" to="/">
-          LOGO
+          HOME
         </Link>
-        <div>
-          <Link className="mx-3" to="electronics">
+        <div className="ml-10">
+          <Link className="mx-3 p-3 hover:underline" to="electronics">
             Electronics
           </Link>
-          <Link className="mx-3" to="clothes-f">
+          <Link className="mx-3 p-3 hover:underline" to="clothes-f">
             Women's Clothing
           </Link>
-          <Link className="mx-3" to="clothes-m">
+          <Link className="mx-3 p-3 hover:underline" to="clothes-m">
             Men's Clothing
           </Link>
-          <Link className="mx-3" to="jewelery">
+          <Link className="mx-3 p-3 hover:underline" to="jewelery">
             Jewelery
           </Link>
         </div>
       </div>
       <div className="flex">
-        <CartIcon cartSize={cartSize} />
+        <CartIcon cartSize={cartSize} key={cartSize} />
       </div>
     </div>
   );
