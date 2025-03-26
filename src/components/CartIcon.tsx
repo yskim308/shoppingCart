@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import cartImg from "../assets/cart-outline.svg";
 
 interface CartIconProps {
   cartSize: number;
@@ -6,9 +7,12 @@ interface CartIconProps {
 
 export default function CartIcon({ cartSize }: CartIconProps) {
   return (
-    <div>
+    <div className="animate-jump">
       <Link to="checkout">
-        <h1>cart: {cartSize} </h1>
+        <div className="flex">
+          <img src={cartImg} alt="cart" className="w-6" />
+          <div className="text-sm">{cartSize}</div>
+        </div>
       </Link>
     </div>
   );

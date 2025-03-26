@@ -76,7 +76,7 @@ export default function NavbarMobile({ cartSize }: NavbarProps) {
           </button>
         </div>
         <div>
-          <CartIcon cartSize={cartSize} />
+          <CartIcon cartSize={cartSize} key={cartSize} />
         </div>
       </div>
       <Sidebar closeSidebar={closeSideBar} isOpen={showSidebar} />
