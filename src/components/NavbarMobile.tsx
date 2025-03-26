@@ -50,7 +50,7 @@ function Sidebar({ closeSidebar, isOpen }: SidebarProps) {
             Men's Clothing
           </Link>
           <Link
-            to="jeweler"
+            to="jewelery"
             className="my-2 p-2 shadow text-sky-950 rounded-lg"
           >
             Jewelery
