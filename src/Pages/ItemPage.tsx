@@ -1,11 +1,13 @@
 import { useLocation, useOutletContext, useParams } from "react-router-dom";
 import { OutletContextObject, Product } from "../types";
 import { FormEvent, useEffect, useState } from "react";
+import Alert from "../components/Alert";
 import starIcon from "../assets/star-outline.svg";
 
 export default function ItemPage() {
   const [itemToDisplay, setItemToDisplay] = useState<Product | null>(null);
   const [count, setCount] = useState<number>(0);
+  const [showAlert, setShowAlert] = useState<boolean>(false);
   const { products, addCheckoutItem }: OutletContextObject = useOutletContext();
   const { itemId } = useParams();
 
@@ -30,6 +32,7 @@ export default function ItemPage() {
 
   return (
     <div className="flex flex-col justify-center items-center w-full h-full">
+      <Alert message="Added to Cart" show={showAlert} />
       <div className="grid grid-cols-1 md:grid-cols-2 w-4/5 md:w-3/5">
         <div className="aspect-square">
           <img
@@ -60,6 +63,10 @@ export default function ItemPage() {
               if (itemToDisplay) {
                 addCheckoutItem({ product: itemToDisplay, quantity: count });
               }
+              setShowAlert(true);
+              setTimeout(() => {
+                setShowAlert(false);
+              }, 2000);
               setCount(0);
             }}
           >
