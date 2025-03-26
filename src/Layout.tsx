@@ -28,10 +28,14 @@ export default function Layout() {
   const removeCheckoutItem = (item: CheckoutItem) => {
     setCheckoutItems(checkoutItems.filter((product) => product !== item));
   };
+  const clearCheckout = () => {
+    setCheckoutItems([]);
+  };
 
   const outletObject = {
     products: products,
     checkoutItems: checkoutItems,
+    clearCheckout: clearCheckout,
     addCheckoutItem: addCheckoutItem,
     removeCheckoutItem: removeCheckoutItem,
   };

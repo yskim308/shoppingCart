@@ -21,6 +21,7 @@ export interface OutletContextObject {
   checkoutItems: CheckoutItem[];
   addCheckoutItem: (item: CheckoutItem) => void;
   removeCheckoutItem: (item: CheckoutItem) => void;
+  clearCheckout: () => void;
 }
 
 export interface NavbarProps {
