@@ -4,7 +4,7 @@ import { NavbarProps } from "../types";
 
 export default function NavbarDesktop({ cartSize }: NavbarProps) {
   return (
-    <div className="hidden lg:flex justify-between p-5 bg-sky-50 w-full">
+    <div className="hidden lg:flex justify-between p-5 bg-sky-50 w-full shadow-md">
       <div className="flex items-center">
         <Link className="text-3xl text-sky-900 font-bold" to="/">
           HOME
