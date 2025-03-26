@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router-dom";
-import { CheckoutItem, OutletContextObject } from "../types";
+import { OutletContextObject } from "../types";
 import ItemCard from "../components/CheckoutItem";
 
 export default function Checkout() {
