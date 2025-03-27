@@ -61,7 +61,6 @@ export default function Layout() {
       <NavbarMobile cartSize={checkoutItems.length} />
       <NavbarDesktop cartSize={checkoutItems.length} />
       <Outlet context={outletObject} />
-      <div className="mt-auto text-3xl">footer</div>
     </div>
   );
 }
