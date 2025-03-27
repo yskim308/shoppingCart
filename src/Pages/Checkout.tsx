@@ -24,20 +24,22 @@ export default function Checkout() {
   return (
     <>
       <Alert show={showAlert} message="items checked out" />
-      <div className="flex flex-col items-center w-full">
-        {checkoutItems.length == 0 && (
-          <div className="text-lg font-bold">No items!</div>
-        )}
-        {checkoutItems.map((item) => {
-          return <ItemCard item={item} key={item.product.id} />;
-        })}
-        <button
-          type="button"
-          onClick={checkoutClick}
-          className="w-4/5 rounded-lg shadow bg-sky-50 text-sky-950 font-semibold mt-5 font-mono"
-        >
-          CHECKOUT
-        </button>
+      <div className="flex justify-center">
+        <div className="flex flex-col items-center w-full md:w-3/5 lg:w-1/2">
+          {checkoutItems.length == 0 && (
+            <div className="text-lg font-bold">No items!</div>
+          )}
+          {checkoutItems.map((item) => {
+            return <ItemCard item={item} key={item.product.id} />;
+          })}
+          <button
+            type="button"
+            onClick={checkoutClick}
+            className="w-4/5 rounded-lg shadow bg-sky-50 text-sky-950 font-semibold mt-5 font-mono"
+          >
+            CHECKOUT
+          </button>
+        </div>
       </div>
     </>
   );
