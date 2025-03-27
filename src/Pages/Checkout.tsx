@@ -27,7 +27,7 @@ export default function Checkout() {
       <div className="flex justify-center">
         <div className="flex flex-col items-center w-full md:w-3/5 lg:w-1/2">
           {checkoutItems.length == 0 && (
-            <div className="text-lg font-bold">No items!</div>
+            <div className="text-lg font-bold mt-5">No items!</div>
           )}
           {checkoutItems.map((item) => {
             return <ItemCard item={item} key={item.product.id} />;
