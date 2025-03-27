@@ -1,5 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import { CheckoutItem, OutletContextObject } from "../types";
+import trashImg from "../assets/trash-can-outline.svg";
 
 interface ItemCardProps {
   item: CheckoutItem;
@@ -8,25 +9,29 @@ interface ItemCardProps {
 export default function ItemCard({ item }: ItemCardProps) {
   const { removeCheckoutItem }: OutletContextObject = useOutletContext();
   return (
-    <div className="flex h-24 mt-5">
-      <div className="flex">
-        <div className="aspect-square w-32">
+    <div className="flex h-28 w-11/12 mt-5 shadow p-1 rounded-lg">
+      <div className="flex h-full w-full">
+        <div className="aspect-square">
           <img
             src={item.product.image}
             alt="loading"
             className="w-full h-full"
           />
         </div>
-        <div className="flex flex-col justify-between">
-          <div className="text-sm font-bold">
+        <div className="flex flex-col justify-between w-full h-full p-2">
+          <div className="text-sm font-bold max-h-16 overflow-auto text-sky-950">
             {item.product.title}
-            <span className="text-xs font-thin"> x{item.quantity}</span>
           </div>
-          <div className="flex justify-between">
-            <div className="text-xs">${item.product.price * item.quantity}</div>
-            <button type="button" onClick={() => removeCheckoutItem(item)}>
-              delete
-            </button>
+          <div>
+            <div className="font-thin text-xs">quantity: {item.quantity}</div>
+            <div className="flex justify-between">
+              <div className="text-sm font-bold text-sky-900">
+                ${item.product.price * item.quantity}
+              </div>
+              <button type="button" onClick={() => removeCheckoutItem(item)}>
+                <img src={trashImg} alt="x" className="w-5" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
