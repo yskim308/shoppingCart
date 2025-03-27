@@ -2,7 +2,6 @@
 
 This README provides a description of each file and function within the `src` directory of this React application.
 [live preview](https://yskim308shop.netlify.app/electronics)
-(live preview)[https://yskim308shop.netlify.app/electronics]
 ## `src/routes.js`
 
 This file defines the routing configuration for the application using `react-router-dom`.
